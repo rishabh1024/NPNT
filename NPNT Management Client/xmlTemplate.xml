@@ -1,0 +1,24 @@
+<UAPermission lastUpdated="" ttl="" txnId="" permissionArtifactId="">
+  <Permission>
+    <Owner operatorId="">
+      <Pilot uaplNo="" validTo=""/>
+    </Owner>
+    <FlightDetails>
+      <UADetails uinNo=""/>
+      <FlightPurpose shortDesc="" frequency=""/>
+      <PayloadDetails payloadWeight="" payloadDetails=""/>
+      <FlightParameters flightStartTime="" flightEndTime="" frequenciesUsed="">
+        <Coordinates>
+          <Coordinate latitude="" longitude=""/>
+          <Coordinate latitude="" longitude=""/>
+          <Coordinate latitude="" longitude=""/>
+          <Coordinate latitude="" longitude=""/>
+        </Coordinates>
+      </FlightParameters>
+    </FlightDetails>
+  </Permission>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+	<SignedInfo>
+		<CanonicalizationMethod Algorithm="http://www.w3.org/2006/12/xml-c14n11"/>
+		<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+		<Reference><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><Transform Algorithm="http://www.w3.org/2006/12/xml-c14n11"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>1h7wAupCNJgqlTERsbYdeU23ysKTW6NIRBrVNJhhm2A=</DigestValue></Reference></SignedInfo><SignatureValue>teLwqCql8CqS7HTKB19ZfxVlwO/d/7oC3g+j3wZTENAuQ5PT5IkH1dT27dc3t4zLObOUFaIA1oAPNi3w1tJNcdYgayy6GA5S1PXgfvzRog0UANxoNlsZWbMoqD1XsqIigbbkil44pb242CBRNohD7sP8T9h8KRr9dPv9TMb3H9bOOduFTCGjhSb97+15HVO0Dvl24b0ix9x3fsgDtz6PlQjI6BUxFWWEJdshnMM89IvcdMxktJzgkJbSDmxnpzPHXz7zmvNDvlqGcQ8sIkw/KZP9UYrxvE1tZRX5uJYfsW97WEKHuxuAj3dOm+Jns2vub2A343J0chzAUmWeLoGG9g==</SignatureValue><KeyInfo><X509Data><X509Certificate>MIIEdzCCA1+gAwIBAgIUNRGVDfGhq8Oxr1JyC1QuDaPMJmswDQYJKoZIhvcNAQEFBQAwgcoxCzAJBgNVBAYTAklOMQswCQYDVQQIDAJLQTESMBAGA1UEBwwJQmVuZ2FsdXJ1MSkwJwYDVQQKDCBBbGdvcGl4ZWwgVGVjaG5vbG9naWVzIFB2dC4gTHRkLjEeMBwGA1UECwwVaURyb25lUG9ydCBEUyBSZXBsaWNhMSgwJgYDVQQDDB9hbGdvcGl4ZWwtaWRyb25lcG9ydC1kcy1yZXBsaWNhMSUwIwYJKoZIhvcNAQkBFhZjb250YWN0QGFsZ29waXhlbC50ZWNoMB4XDTE5MDMxNDA5NDY1NFoXDTIwMDMxMzA5NDY1NFowgcoxCzAJBgNVBAYTAklOMQswCQYDVQQIDAJLQTESMBAGA1UEBwwJQmVuZ2FsdXJ1MSkwJwYDVQQKDCBBbGdvcGl4ZWwgVGVjaG5vbG9naWVzIFB2dC4gTHRkLjEeMBwGA1UECwwVaURyb25lUG9ydCBEUyBSZXBsaWNhMSgwJgYDVQQDDB9hbGdvcGl4ZWwtaWRyb25lcG9ydC1kcy1yZXBsaWNhMSUwIwYJKoZIhvcNAQkBFhZjb250YWN0QGFsZ29waXhlbC50ZWNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt0aHtTg/NPvWwksUY4kYbkatfmliGrUe30C3eDy0GFLpTqHQV+g4wkWovqfu3tvd0FMjlRdbPOI6gGBcG9yIA5tTXUcVEDwCi50TuiIAN4QINWzS6I+cvCqIwEZk3Yih64MRjPHoUrm4zyr0ihMU/XjDqG7cu2QNY/gBX+LD86qcQRcV+7wq/7OW+aWq1bZFiI9pMraHWhrMvj3kthjDT4RbeYNE9JjHIePMmH7hSi67rQLingQ8+ccK7P7bc+Yfj34FBxZIh0m0NPZO/nsgL1ZqqheV+WtY9eZs71CZK8hSJXTMEw5EaXaZMF7i5LjJnU09PHVXwoBHZ1FpqQyUZQIDAQABo1MwUTAdBgNVHQ4EFgQUAT2SZyZlEFy53FeRG4+vhFa1bsEwHwYDVR0jBBgwFoAUAT2SZyZlEFy53FeRG4+vhFa1bsEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAKRMAJH5Gyo1N2+ZDKuk3RIH+nKdSndD6nJRlAp2F3cW+RrAHPzpQVIgBHWXY95vY4rXG50JqJ+Vq485i/7MNOSCduFEwJK7K5fRTaSm8tPUwfowdcr5t4SEwZyYwmq3TZl8LZ+E0AJVHhfjio7Mmg1ruMDiOOy1d9EG9+/9WB3rKHjYL/wXr7WXhANz6w7tkxESkMPXjPY8Pxwj9H9wZonn+yOW+jgf1/+WGHqpH7VBsUfD1TEc8ygWX9iQUOD7pWtZ/VF1ETY9QzQhZb+1lHQyOLhWg55utmjGrFpbUM24SaiN88deMxd0lOp50tpYR8EbLuPH4LuHWvlgMKbepFw==</X509Certificate></X509Data></KeyInfo></Signature></UAPermission>
