@@ -20,11 +20,23 @@ import json
 import struct
 import picket
 from dronekit import connect
+from os import listdir
+ 
+def list_files(directory, extension):
+    return (f for f in listdir(directory) if f.endswith('.' + extension))
 
 from artifactCheck import parseXML, verifySig, Telemetry_data_json, timeCheck
 
-artifact_permission = "valid_permission_artifact.xml"
-Cert = 'dgca.cert'
+xml_files = list_files('/home/pi/Current_XML', 'xml')
+for x in xml_files:
+    xml_file = os.path.join('/home/pi/Current_XML', x)
+    
+cert_files = list_files('/home/pi/Current_Cert', 'cert')
+for x in cert_files:
+    cert_file = os.path.join('/home/pi/Current_Cert', x)
+    
+artifact_permission = xml_file
+Cert = cert_file
 
 from imp import reload
 
