@@ -34,7 +34,7 @@ def send():
     ssh.connect(server, username="pi", password="Omni@123")
     sftp = ssh.open_sftp()
     localpath = filename
-    remotepath = "valid_permission_artifact.xml"
+    remotepath = "/home/pi/Current_XML/valid_permission_artifact.xml"
     sftp.put(localpath, remotepath)
     sftp.close()
     ssh.close()
