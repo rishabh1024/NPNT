@@ -21,6 +21,7 @@ import struct
 import picket
 from dronekit import connect
 from os import listdir
+from helpers import sign_log
  
 def list_files(directory, extension):
     return (f for f in listdir(directory) if f.endswith('.' + extension))
@@ -970,6 +971,11 @@ def periodic_tasks():
     if heartbeat_check_period.trigger():
         check_link_status()
     
+    ## Sign the JSON LOG file after the landing THIS FILE HAS TO BE SENT BACK TO THE CLIENT PC
+    if periodic_disarm_check.trigger():
+        if(mpstate.status.armed) == False:
+            sign_log('/home/pi/Current_Log/data.json', '/home/pi/Current_Keys/first_private.pem') ## SIGN THE JSON LOG
+    
     if telemetry_json.trigger(): # Create Periodic entry of telemetry data in JSON FILE
         print("Periodic Telemetry data entry......")
         Lat, Lon, Alt = lat_long_alt()
@@ -1016,6 +1022,8 @@ def periodic_tasks():
 def main_loop():
     '''main processing loop'''
 
+    print("ARMED ? ",mpstate.status.armed)
+
     global screensaver_cookie
     #textconsole.SimpleConsole().set_status("Battery....")
     mpstate.console.writeln("Running script")
@@ -1029,6 +1037,7 @@ def main_loop():
             send_heartbeat(master)
             master.wait_heartbeat(timeout=0.1)
         set_stream_rates()
+    
     
     PreArm_Checks(artifact_permission)
         
