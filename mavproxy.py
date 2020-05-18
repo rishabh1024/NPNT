@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+p#!/usr/bin/env python
 '''
 mavproxy - a MAVLink proxy program
 
@@ -1397,6 +1397,7 @@ if __name__ == '__main__':
     heartbeat_check_period = mavutil.periodic_event(0.33)
     sig_verify  = mavutil.periodic_event(1.0/60)
     #telemetry_json  = mavutil.periodic_event(1.0/60)
+    periodic_disarm_check = mavutil.periodic_event(1.0/1200)
     telemetry_json  = mavutil.periodic_event(1.0/120)
     geofence_check = mavutil.periodic_event(1.0/40)
 
