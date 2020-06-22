@@ -1,4 +1,4 @@
-p#!/usr/bin/env python
+#!/usr/bin/env python
 '''
 mavproxy - a MAVLink proxy program
 
@@ -928,7 +928,7 @@ def PreArm_Checks(Permission_Artifact):
                     print("No coordinates Passed")
                     print("Geofence Check Failed")
                     geo_check = False
-                    #print(float(coord_list[i][0]), float(coord_list[i][1]))'''
+                    #print(float(coord_list[i][0]), float(coord_list[i][1]))
                 if(geo_check == True):
                     for master in mpstate.mav_master: # ARMING THE DRONE
                         master.mav.command_long_send(mpstate.settings.target_system, mpstate.settings.target_component,
@@ -966,7 +966,8 @@ def periodic_tasks():
         for master in mpstate.mav_master:
             send_heartbeat(master)
     if sig_verify.trigger():
-        verifySig()
+        pass
+        #verifySig()
 
     if heartbeat_check_period.trigger():
         check_link_status()
@@ -975,17 +976,19 @@ def periodic_tasks():
     if periodic_disarm_check.trigger():
         if(mpstate.status.armed) == False:
             sign_log('/home/pi/Current_Log/data.json', '/home/pi/Current_Keys/first_private.pem') ## SIGN THE JSON LOG
-    
+
     if telemetry_json.trigger(): # Create Periodic entry of telemetry data in JSON FILE
         print("Periodic Telemetry data entry......")
         Lat, Lon, Alt = lat_long_alt()
         Telemetry_data_json(Lat, Lon, Alt)
-         
-    if geofence_check.trigger(): ## Periodic Geo-Fence Check
-        coord_list = parseXML(Permission_Artifact)
 
-        len_file = len(coord_list)
-        
+    if geofence_check.trigger(): ## Periodic Geo-Fence Check
+        pass
+        '''
+	coord_list = parseXML(Permission_Artifact)
+
+       	len_file = len(coord_list)
+
         my_fence = picket.Fence()
         if(len_file>0):
             for i in range(len_file):
@@ -998,7 +1001,9 @@ def periodic_tasks():
             print("Geofence Check Successful")
         else:
             print("Geofence Breached at : ", str(datetime.now()).split(' ')[1])
-            Telemetry_data_json(Lat, Lon, Alt)
+            mpstate.status.flightmode = "RTL" # Change mode to RTL
+            Telemetry_data_json(Lat, Lon, Alt)'''
+
 
     set_stream_rates()
 
@@ -1021,9 +1026,11 @@ def periodic_tasks():
 
 def main_loop():
     '''main processing loop'''
-
+    
+    # Checking if drone is armed
     print("ARMED ? ",mpstate.status.armed)
-
+    
+    
     global screensaver_cookie
     #textconsole.SimpleConsole().set_status("Battery....")
     mpstate.console.writeln("Running script")
@@ -1039,7 +1046,7 @@ def main_loop():
         set_stream_rates()
     
     
-    PreArm_Checks(artifact_permission)
+    #PreArm_Checks(artifact_permission)
         
     while True:
         if mpstate is None or mpstate.status.exit:
